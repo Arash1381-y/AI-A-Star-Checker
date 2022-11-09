@@ -1,6 +1,5 @@
 import React from 'react';
 import Tree from "react-d3-tree";
-import './Tree-style.css'
 import GridLines from 'react-gridlines';
 import Page from "../components/Page";
 import {useLocation} from "react-router-dom";

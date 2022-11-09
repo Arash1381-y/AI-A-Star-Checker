@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import CssBaseline from '@mui/material/CssBaseline';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -84,7 +83,6 @@ function SideBar() {
 
     return (
         <Box sx={{display: 'flex'}}>
-            <CssBaseline/>
             <AppBar sx={{background: '#2abccb'}} position="fixed" open={open}>
                 <Toolbar>
                     <Typography variant="h5" noWrap sx={{flexGrow: 1}} component="div">
