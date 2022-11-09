@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/AI-A-Star-Checker/static/css/main.4c10a12e.css",
+    "main.js": "/AI-A-Star-Checker/static/js/main.27cc0670.js",
+    "static/media/img_1.png": "/AI-A-Star-Checker/static/media/img_1.cec892333a1e5322e374.png",
+    "index.html": "/AI-A-Star-Checker/index.html",
+    "main.4c10a12e.css.map": "/AI-A-Star-Checker/static/css/main.4c10a12e.css.map",
+    "main.27cc0670.js.map": "/AI-A-Star-Checker/static/js/main.27cc0670.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c10a12e.css",
+    "static/js/main.27cc0670.js"
+  ]
+}
