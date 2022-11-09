@@ -14,19 +14,14 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import {useNavigate} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 const drawerWidth = 240;
 
 const pages = [
     {
-        title: 'my implementation',
-        path: '/my-implementation',
-    },
-    {
-        title: 'source implementation',
-        path: '/source-implementation',
+        title: 'graph info',
+        path: '/graph-form',
     },
 ];
 
@@ -75,8 +70,7 @@ const DrawerHeader = styled('div')(({theme}) => ({
     justifyContent: 'flex-start',
 }));
 
-export default function PersistentDrawerRight() {
-    const navigate = useNavigate();
+function SideBar() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -91,10 +85,10 @@ export default function PersistentDrawerRight() {
     return (
         <Box sx={{display: 'flex'}}>
             <CssBaseline/>
-            <AppBar sx={{background:'#0E9D7BFF'}} position="fixed" open={open}>
+            <AppBar sx={{background: '#2abccb'}} position="fixed" open={open}>
                 <Toolbar>
-                    <Typography variant="h6" noWrap sx={{flexGrow: 1}} component="div">
-                        Persistent drawer
+                    <Typography variant="h5" noWrap sx={{flexGrow: 1}} component="div">
+                        Graph Visualizer
                     </Typography>
                     <IconButton
                         color="inherit"
@@ -130,14 +124,19 @@ export default function PersistentDrawerRight() {
                         <ListItem key={item.title}
                                   disablePadding
                         >
-                            <ListItemButton onClick={() => navigate(item.path)}>
-                                <ListItemText primary={item.title}/>
-                            </ListItemButton>
+                            <ListItemButton>
+                                <Link to={item.path} style={{textDecoration:'none'}}>
+                                    <Typography variant="h6" noWrap sx={{flexGrow: 1, color:'#2abccb'}} component="div">
+                                        {item.title}
+                                    </Typography>
+                            </Link>
+                        </ListItemButton>
                         </ListItem>
-                    ))}
+                        ))}
                 </List>
             </Drawer>
-
         </Box>
     );
 }
+
+export default SideBar

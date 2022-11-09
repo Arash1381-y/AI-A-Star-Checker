@@ -1,15 +1,15 @@
 /* custom-tree.css */
 
 .node__root > circle {
-    fill: #2ee3c7;
+    fill: #2abccb;
 }
 
 .node__branch > circle {
-    fill: #0e9d7b;
+    fill: #8beaf1;
 }
 
 .node__leaf > circle {
-    fill: #0e9d7b;
+    fill: #ccd0d0;
     /* Let's also make the radius of leaf nodes larger */
-    r: 40;
+    r: 25;
 }

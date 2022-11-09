@@ -1,11 +1,12 @@
 import React from 'react';
 import Page from "../components/Page";
 
-function SourceImplementation(props) {
+function SourceImplementation() {
     return (
         <Page>
 
         </Page>
+
     );
 }
 

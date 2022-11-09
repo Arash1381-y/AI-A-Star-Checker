@@ -1,29 +1,139 @@
 class Tree {
-    constructor(name) {
+    constructor(name, attributes, labels) {
         this.name = name;
-        this.attributes = [];
-        this.children = [];
+        this.labels = labels;
+        this.children = null;
+    }
+
+    addChild(child) {
+        if (this.children === null) {
+            this.children = [];
+        }
+        this.children.push(child);
     }
 }
 
-function createNestedTree(states){
-    //create a tree for each of the nodes
-    //iterate over each state
-    for (let i = 0; i < states.length; i++) {
-        //iterate over each line of the state
 
+class State {
+    constructor(id, parent, heuristic, cost, labels) {
+        this.id = id;
+        this.parent = parent;
+        this.heuristic = heuristic;
+        this.cost = cost;
+        this.labels = labels;
+    }
+
+    get f() {
+        return this.heuristic + this.cost;
     }
 }
 
+/*
+  "
+  0 2
+  3 0 1 2
+  3 0
 
-function dataMiner(data) {
+  1 2
+  3 1 0 2
+  3 2
+
+ */
+
+function createTree(steps) {
     //split data by empty line into array of strings
-    const dataArr = data.split(/\n\s*\n/);
+    const dataArr = steps.split(/\n\s*\n/);
     // each element of data Array is a string of label and heuristic and g function
     // split each element by new line
-    const states = dataArr.map((element) => {
+    const statesAsString = dataArr.map((element) => {
         return element.split(/\n/);
     });
+    const statesArray = []
+    const labelsSet = new Set();
+    for (let i = 0; i < statesAsString.length; i++) {
+        const indices = statesAsString[i][0].split(" ");
+        const stateIndex = parseInt(indices[0])
+        const parentIndex = parseInt(indices[1])
 
-    // iterate over each state
+        let labels = statesAsString[i][1].split(" ");
+        labels = labels.map((label) => {
+            return parseInt(label);
+        });
+
+        if (labelsSet.has(labels)) {
+            //return error
+            return {
+                Error: 'Labels are not unique'
+            }
+        }
+
+        labelsSet.add(labels);
+        let costAndHeuristic = statesAsString[i][2].split(" ");
+        const cost = parseInt(costAndHeuristic[0]);
+        const heuristic = parseInt(costAndHeuristic[1]);
+
+        statesArray.push(new State(stateIndex, parentIndex, heuristic, cost, labels));
+    }
+
+    const indexTreeDict = {}
+
+    //iterate over states
+    for (let i = 0; i < statesArray.length; i++) {
+        indexTreeDict[statesArray[i].id] =
+            new Tree('g: ' + statesArray[i].cost + ' h: ' + statesArray[i].heuristic, {
+                'step': i + 1
+            }, statesArray[i].labels);
+    }
+
+    const rootId = statesArray[0].id;
+    const root = indexTreeDict[rootId];
+
+    //iterate over states except first element
+    for (let i = 1; i < statesArray.length; i++) {
+        const tree = indexTreeDict[statesArray[i].id];
+        const parentTree = indexTreeDict[statesArray[i].parent];
+        parentTree.addChild(tree);
+    }
+
+    return root
+}
+
+function createGraph(nodesNumber, edges) {
+    const relationsAsString = edges.split(/\n/);
+    const relations = relationsAsString.map((relation) => {
+        const relationArr = relation.split(" ");
+        return {
+            source: relationArr[0],
+            target: relationArr[1]
+        }
+    });
+    //create nodes array
+    const nodes = [];
+    const teta = 2 * Math.PI / nodesNumber;
+    const center = 250;
+    for (let i = 0; i < nodesNumber; i++) {
+        nodes.push({
+            id: `${i}`,
+            x: center + nodesNumber * 18.5 * Math.cos(teta * i),
+            y: center + nodesNumber * 18.5 * Math.sin(teta * i)
+        })
+    }
+    return {
+        nodes: nodes,
+        links: relations
+    }
+}
+
+export function dataMiner(state) {
+    if (state === null) return {
+        graph: null,
+        tree: null
+    }
+
+    const graph = createGraph(state.verticesNumber, state.edges);
+    const root = createTree(state.steps);
+    return {
+        graph: graph,
+        tree: root
+    }
 }
