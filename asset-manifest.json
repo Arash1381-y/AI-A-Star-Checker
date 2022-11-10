@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/AI-A-star-Checker/static/css/main.28adbdfa.css",
-    "main.js": "/AI-A-star-Checker/static/js/main.a6ce81bb.js",
+    "main.js": "/AI-A-star-Checker/static/js/main.6aa1dbd0.js",
     "static/media/home.png": "/AI-A-star-Checker/static/media/home.cec892333a1e5322e374.png",
     "index.html": "/AI-A-star-Checker/index.html",
     "main.28adbdfa.css.map": "/AI-A-star-Checker/static/css/main.28adbdfa.css.map",
-    "main.a6ce81bb.js.map": "/AI-A-star-Checker/static/js/main.a6ce81bb.js.map"
+    "main.6aa1dbd0.js.map": "/AI-A-star-Checker/static/js/main.6aa1dbd0.js.map"
   },
   "entrypoints": [
     "static/css/main.28adbdfa.css",
-    "static/js/main.a6ce81bb.js"
+    "static/js/main.6aa1dbd0.js"
   ]
 }
