@@ -6,7 +6,7 @@ You can visualize the A* algorithm steps with this tool.
 all you need is to add this code to your project:
 
 ```python
-def summarise_graph(graph: StampGraph):
+def summarise_graph(graph):
     global times # define times as global variable
     times += 1
     #parent id of the root must be some unique value
