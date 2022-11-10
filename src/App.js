@@ -6,15 +6,19 @@ import Examples from "./pages/Examples";
 import GraphForm from "./pages/GraphForm";
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
+import {Helmet} from "react-helmet";
 
 function App() {
     return (
         <div className="App">
+            <Helmet>
+                <title>A* Checker</title>
+            </Helmet>
             <Routes>
                 <Route path="/AI-A-Star-Checker" element={<Home/>} />
-                <Route path="/graph-form" element={<GraphForm/>}/>
-                <Route path="/my-implementation" element={<MyImplementation/>}/>
-                <Route path="/examples" element={<Examples/>}/>
+                <Route path="/AI-A-Star-Checker/graph-form" element={<GraphForm/>}/>
+                <Route path="/AI-A-Star-Checker/my-implementation" element={<MyImplementation/>}/>
+                <Route path="/AI-A-Star-Checker/examples" element={<Examples/>}/>
                 <Route path="/*" element={<div>Not Found</div>}/>
             </Routes>
             <ToastContainer />

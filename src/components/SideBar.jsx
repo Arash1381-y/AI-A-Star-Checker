@@ -20,11 +20,11 @@ const drawerWidth = 240;
 const pages = [
     {
         title: 'Graph Info',
-        path: '/graph-form',
+        path: '/AI-A-Star-Checker/graph-form',
     },
     {
         title: 'Examples ',
-        path: '/examples',
+        path: '/AI-A-Star-Checker/examples',
     }
 ];
 

@@ -69,7 +69,7 @@ function GraphForm() {
         ,
         validationSchema: initSchema,
         onSubmit: (values) => {
-            navigate('/my-implementation', {state: values})
+            navigate('/AI-A-Star-Checker/my-implementation', {state: values})
         }
 
     });
@@ -82,7 +82,7 @@ function GraphForm() {
         validationSchema: jsonSchema,
         onSubmit: (values) => {
             let props = JSON.parse(values.object)
-            navigate('/my-implementation', {state: props})
+            navigate('/AI-A-Star-Checker/my-implementation', {state: props})
         }
     });
 
