@@ -19,9 +19,13 @@ const drawerWidth = 240;
 
 const pages = [
     {
-        title: 'graph info',
+        title: 'Graph Info',
         path: '/graph-form',
     },
+    {
+        title: 'Examples ',
+        path: '/examples',
+    }
 ];
 
 
@@ -123,14 +127,15 @@ function SideBar() {
                                   disablePadding
                         >
                             <ListItemButton>
-                                <Link to={item.path} style={{textDecoration:'none'}}>
-                                    <Typography variant="h6" noWrap sx={{flexGrow: 1, color:'#2abccb'}} component="div">
+                                <Link to={item.path} style={{textDecoration: 'none'}}>
+                                    <Typography variant="h6" noWrap sx={{flexGrow: 1, color: '#2abccb'}}
+                                                component="div">
                                         {item.title}
                                     </Typography>
-                            </Link>
-                        </ListItemButton>
+                                </Link>
+                            </ListItemButton>
                         </ListItem>
-                        ))}
+                    ))}
                 </List>
             </Drawer>
         </Box>

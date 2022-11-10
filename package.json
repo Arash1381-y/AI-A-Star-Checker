@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://arash1381-y.github.io/AI-A-Star-Checker",
+  "homepage": "https://arash1381-y.github.io/AI-A-star-Checker",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -22,6 +22,7 @@
     "react-gridlines": "^1.1.7",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

@@ -28,26 +28,15 @@ class State {
     }
 }
 
-/*
-  "
-  0 2
-  3 0 1 2
-  3 0
-
-  1 2
-  3 1 0 2
-  3 2
-
- */
-
-function createTree(steps) {
+function createTree(stepsList) {
     //split data by empty line into array of strings
-    const dataArr = steps.split(/\n\s*\n/);
+    const dataArr = stepsList.trim().split(/\n\s*\n/);
     // each element of data Array is a string of label and heuristic and g function
     // split each element by new line
     const statesAsString = dataArr.map((element) => {
         return element.split(/\n/);
     });
+
     const statesArray = []
     const labelsSet = new Set();
     for (let i = 0; i < statesAsString.length; i++) {
@@ -56,6 +45,8 @@ function createTree(steps) {
         const parentIndex = parseInt(indices[1])
 
         let labels = statesAsString[i][1].split(" ");
+
+
         labels = labels.map((label) => {
             return parseInt(label);
         });
@@ -99,7 +90,7 @@ function createTree(steps) {
 }
 
 function createGraph(nodesNumber, edges) {
-    const relationsAsString = edges.split(/\n/);
+    const relationsAsString = edges.trim().split(/\n/);
     const relations = relationsAsString.map((relation) => {
         const relationArr = relation.split(" ");
         return {
@@ -130,10 +121,12 @@ export function dataMiner(state) {
         tree: null
     }
 
-    const graph = createGraph(state.verticesNumber, state.edges);
-    const root = createTree(state.steps);
+    const graph = createGraph(state.nodesNumber, state.edgesList);
+    const root = createTree(state.stepsList);
     return {
         graph: graph,
         tree: root
     }
 }
+
+
