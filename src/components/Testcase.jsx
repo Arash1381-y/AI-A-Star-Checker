@@ -1,5 +1,6 @@
 import {Button, Container, styled, Typography} from "@mui/material";
 import {toast} from 'react-toastify';
+import {CopyToClipboard} from "react-copy-to-clipboard/src";
 
 const TestCaseTitle = styled(Typography)({
     fontWeight: 'bold',
@@ -8,6 +9,7 @@ const TestCaseTitle = styled(Typography)({
     borderBottom: '4px solid #016aa1',
     display: 'inline-block',
 });
+
 function successToast() {
     toast.success('test is copied to clipboard', {
         position: "bottom-left",
@@ -39,7 +41,7 @@ const objectCreator = (nodesNumber, edgesNumber, edgesList, stepsList) => {
     // concat each edge of the edge list to a string
     let edges = '';
     edgesList.forEach((edge) => {
-        edges += edge.from + ' ' + edge.to+ '\n';
+        edges += edge.from + ' ' + edge.to + '\n';
     });
     // concat each step of the steps list to a string
     let steps = '';
@@ -58,19 +60,16 @@ const objectCreator = (nodesNumber, edgesNumber, edgesList, stepsList) => {
 function Testcase({title, index, nodesNumber, edgesNumber, edgesList, stepsList, answer}) {
     return (
         <Container>
-            <Button variant={'text'} onClick={
-                () => {
-                    successToast();
-                    navigator.clipboard.writeText(JSON.stringify(objectCreator(nodesNumber, edgesNumber, edgesList, stepsList)));
-                }
-            }
-            >
-                <TestCaseTitle variant={'h3'}
-                               gutterBottom>{`${index}. ${title}: correct answer : ${answer}`}</TestCaseTitle>
-            </Button>
+            <Button variant={'text'} gutterBottom>
+                <CopyToClipboard text={JSON.stringify(objectCreator(nodesNumber, edgesNumber, edgesList, stepsList))}>
+                    <TestCaseTitle variant={'h3'} onClick={successToast} gutterBottom>
+                        {`${index}. ${title}: correct answer : ${answer}`}
+                    </TestCaseTitle>
+                </CopyToClipboard>
+        </Button>
 
-        </Container>
-    )
+</Container>
+)
 }
 
 

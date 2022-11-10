@@ -3,12 +3,13 @@ import Page from "../components/Page";
 import Testcase from "../components/Testcase";
 
 
+
 function Examples() {
     const obj = require('../test.json')
     const tests = obj.Tests;
     return (
         <Page>
-            <div style={{marginTop:'10%'}}>
+            <div style={{marginTop:'15%'}}>
             {
                 tests.map((test, index) => {
                     return (
