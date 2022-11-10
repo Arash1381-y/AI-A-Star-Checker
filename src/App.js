@@ -13,7 +13,7 @@ function App() {
                 <Route path="/graph-form" element={<GraphForm/>}/>
                 <Route path="/my-implementation" element={<MyImplementation/>}/>
                 <Route path="/source-implementation" element={<SourceImplementation/>}/>
-                <Route path="*" element={<div>Not Found</div>}/>
+                <Route path="/*" element={<div>Not Found</div>}/>
             </Routes>
         </div>
     );
