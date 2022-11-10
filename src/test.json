@@ -91,7 +91,7 @@
       ]
     },
     {
-      "title": "test",
+      "title": "8 Puzzle Testcase",
       "nodesNumber": 9,
       "edgesNumber": 12,
       "answer": 16,

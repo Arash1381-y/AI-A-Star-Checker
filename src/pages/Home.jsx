@@ -4,16 +4,19 @@ import SideBar from "../components/SideBar";
 import Graph from "../const/images/home.png";
 import {Container} from "@mui/material";
 
+
+const homeStyle = {
+    width: '100vw',
+    height: '100vh',
+    backgroundImage: `url(${Graph})`,
+    backgroundSize: 'cover',
+}
+
 function Home(props) {
     return (
         <Page>
             <SideBar/>
-            <Container>
-                <img
-                    height={'80%'}
-                    width={'80%'}
-                    src={Graph}
-                    alt={'graph loop'}/>
+            <Container sx={homeStyle}>
             </Container>
         </Page>
     );
