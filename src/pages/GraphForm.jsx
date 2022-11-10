@@ -1,7 +1,7 @@
 import React from 'react';
 import {useFormik} from "formik";
 import * as yup from "yup";
-import {styled, TextField, Button, Grid, Container, Typography} from "@mui/material";
+import {styled, TextField, Button, Container, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import Box from "@mui/material/Box";
 import Page from "../components/Page";
@@ -50,6 +50,7 @@ const jsonSchema = yup.object({
 })
 
 const StyledTexField = styled(TextField)({
+    marginTop: '0.5 rem',
     width: '100%',
     marginBottom: '1rem'
 })
@@ -89,7 +90,7 @@ function GraphForm() {
     return (
         <Page>
             <Container maxWidth="xs">
-                <Typography sx={{marginTop: '1rem', color: '#2abccb'}} align={'center'} variant={'h4'} gutterBottom>Graph
+                <Typography sx={{marginTop: '17%', color: '#2abccb'}} align={'center'} variant={'h4'} gutterBottom>Graph
                     Data</Typography>
                 <Box sx={formStyle}>
                     <form onSubmit={initForm.handleSubmit}>
