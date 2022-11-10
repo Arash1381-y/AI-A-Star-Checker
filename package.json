@@ -1,7 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://Arash1381-y.github.io/AI-A-Star-Checker",
+  "homepage": "https://arash1381-y.github.io/AI-A-Star-Checker",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.10.5",
