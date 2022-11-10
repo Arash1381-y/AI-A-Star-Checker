@@ -1,6 +1,7 @@
 class Tree {
     constructor(name, attributes, labels) {
         this.name = name;
+        this.attributes = attributes;
         this.labels = labels;
         this.children = null;
     }
