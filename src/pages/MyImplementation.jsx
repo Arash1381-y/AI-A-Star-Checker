@@ -6,6 +6,7 @@ import {useLocation} from "react-router-dom";
 import {dataMiner} from "../function/dataMiner";
 import ShowGraph from "../function/GraphDialog";
 import {Container} from "@mui/material";
+import './styles.css'
 
 function MyImplementation() {
     const {state} = useLocation();
