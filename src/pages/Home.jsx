@@ -1,7 +1,6 @@
 import React from 'react';
 import Page from "../components/Page";
 import SideBar from "../components/SideBar";
-import Graph from "../const/images/img_1.png";
 import {Container} from "@mui/material";
 
 function Home(props) {
@@ -9,11 +8,6 @@ function Home(props) {
         <Page>
             <SideBar/>
             <Container>
-                <img
-                    height={'80%'}
-                    width={'80%'}
-                    src={Graph}
-                    alt={'graph loop'}/>
             </Container>
         </Page>
     );
